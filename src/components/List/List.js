@@ -8,7 +8,7 @@ import Creator from '../Creator/Creator.js';
 import ReactHtmlParser from 'react-html-parser';
 
 class List extends React.Component {
-
+  
   static propTypes = {
     title: PropTypes.node.isRequired,
     description: PropTypes.node,
@@ -19,44 +19,37 @@ class List extends React.Component {
   static defaultProps = {
     description: settings.defaultListDescription,
   };
-  
-   addColumn(title) {
-      this.setState(state => (
-        {
-          columns: [
-            ...state.columns,
-            {
-              key: state.columns.length ? state.columns[state.columns.length - 1].key + 1 : 0,
-              title,
-              icon: 'list-alt',
-              cards: [],
-            },
-          ],
-        }
-      ));
+  state = {
+    columns: this.props.columns,
+  };
+  addColumn(title) {
+    this.setState(state => ({
+      columns: [
+        ...state.columns, { key: state.columns.length ? state.columns[state.columns.length - 1].key + 1 : 0,
+          title,
+          icon: 'list-alt',
+          cards: [],
+        },
+      ],
     }
-
+    ));
+  }
   render() {
-    const {title, image, description, columns, addColumn} = this.props;
-
+    const {title, image, description } = this.props;
     return (
       <section className={styles.component}>
         <Hero titleText={title} image={image} />
-        <div className={styles.description}>
-          {ReactHtmlParser(description)}
+        <div className={styles.description}> {ReactHtmlParser(description)}
         </div>
-        <div className={styles.columns}>
-          {columns.map(columnData => (
-            <Column key={columnData.id} {...columnData} />
-          ))}
+        <div className={styles.columns}> {this.state.columns.map(columnData => (
+          <Column key={columnData.id} {...columnData} /> ))}
         </div>
         <div className={styles.creator}>
-          <Creator text={settings.columnCreatorText} action={addColumn}/>
+          <Creator text={settings.columnCreatorText} action={(title) =>
+            this.addColumn(title)}/>
         </div>
       </section>
     );
   }
-
 }
-
 export default List;
