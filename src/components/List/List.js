@@ -8,20 +8,18 @@ import Creator from '../Creator/Creator.js';
 import ReactHtmlParser from 'react-html-parser';
 
 class List extends React.Component {
-  
+
   static propTypes = {
     title: PropTypes.node.isRequired,
     description: PropTypes.node,
     columns: PropTypes.array,
     image: PropTypes.node,
-    addColumn: PropTypes.func,
   };
-  static defaultProps = {
-    description: settings.defaultListDescription,
-  };
+
   state = {
     columns: this.props.columns,
   };
+
   addColumn(title) {
     this.setState(state => ({
       columns: [
@@ -34,6 +32,7 @@ class List extends React.Component {
     }
     ));
   }
+
   render() {
     const {title, image, description } = this.props;
     return (

@@ -12,12 +12,12 @@ class Column extends React.Component {
     cards: PropTypes.array,
     icon: PropTypes.node,
     title: PropTypes.node.isRequired,
-    name: PropTypes.string,
-    addCard: PropTypes.func,
   };
+
   static defaultProps = {
     icon: settings.defaultColumnIcon,
   };
+
   state = {
     cards: this.props.cards,
   };
@@ -38,17 +38,18 @@ class Column extends React.Component {
 
   render() {
 
-    const {title, cards, icon} = this.props;
+    const {title, icon} = this.props;
+
     return (
       <section className={styles.component}>
-        <h3 className={styles.title} >{title}
+        <h3 className={styles.title}>
+          {title}
           <span className={styles.icon}>
             <Icon name={icon}></Icon>
           </span>
-          {title}
         </h3>
         <div className={styles.cards}>
-          {cards.map(cardData => (
+          {this.state.cards.map(cardData => (
             <Card key={cardData.id} {...cardData} />
           ))}
         </div>
