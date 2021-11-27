@@ -1,6 +1,7 @@
 export const settings = {
   columnCreatorText: 'Add new column',
   cardCreatorText: 'Add new card',
+  listCreatorText: 'Add new list',
   creator: {
     buttonOK: 'OK',
     buttonCancel: 'Cancel',
@@ -12,6 +13,7 @@ export const settings = {
   },
   defaultListDescription: '<p>I can do all the things!!!</p>',
   defaultColumnIcon: 'list-alt',
+  defaultNewListDescription: '<p>I am the new one in town</p>',
 };
 
 export const pageContents = {
@@ -23,6 +25,7 @@ export const listData = {
   title: 'Things to do <sup>soon!</sup>',
   description: 'Interesting things I want to check out!',
   image: 'http://uploads.kodilla.com/bootcamp/fer/11.react/space.png',
+  imageNewList: 'https://images.pexels.com/photos/7577876/pexels-photo-7577876.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
   columns: [
     {
       key: 0,
@@ -32,10 +35,12 @@ export const listData = {
         {
           key: 0,
           title: 'This Is Going to Hurt',
+          index: 0,
         },
         {
           key: 1,
           title: 'Interpreter of Maladies',
+          index: 1,
         },
       ],
     },
@@ -47,10 +52,12 @@ export const listData = {
         {
           key: 0,
           title: 'Harry Potter',
+          index: 0,
         },
         {
           key: 1,
           title: 'Star Wars',
+          index: 1,
         },
       ],
     },
@@ -62,10 +69,12 @@ export const listData = {
         {
           key: 0,
           title: 'The Witcher',
+          index: 0,
         },
         {
           key: 1,
           title: 'Skyrim',
+          index: 1,
         },
       ],
     },
@@ -113,31 +122,37 @@ const cards = [
     id: 'card-1',
     columnId: 'column-1',
     title: 'This Is Going to Hurt',
+    index: 0,
   },
   {
     id: 'card-2',
     columnId: 'column-1',
     title: 'Interpreter of Maladies',
+    index: 1,
   },
   {
     id: 'card-3',
     columnId: 'column-2',
     title: 'Harry Potter',
+    index: 0,
   },
   {
     id: 'card-4',
     columnId: 'column-2',
     title: 'Star Wars',
+    index: 1,
   },
   {
     id: 'card-5',
     columnId: 'column-3',
     title: 'The Witcher',
+    index: 0,
   },
   {
     id: 'card-6',
     columnId: 'column-3',
     title: 'Skyrim',
+    index: 1,
   },
 ];
 
