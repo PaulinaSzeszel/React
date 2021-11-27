@@ -28,7 +28,7 @@ class Creator extends React.Component {
 
   handleOK = () => {
     if(this.state.value != ''){
-      this.props.action(this.state.value),
+      this.props.action(this.state.value);
       this.setState({
         value: '',
         visibleButtons: false,
@@ -41,6 +41,8 @@ class Creator extends React.Component {
       value: '',
       visibleButtons: false,
     });
+
+    window.confirm('Do you really want to cancel?');
   };
 
   render() {

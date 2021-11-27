@@ -1,0 +1,21 @@
+import {connect} from 'react-redux';
+import Column from './Column';
+import { getCardsForColumn, createActionAddCard } from '../../redux/cardsRedux';
+
+//export const getCardsForColumn = ({cards}, columnId) => cards.filter(card => card.columnId == columnId);
+
+//powiązanie propsów ze stanem aplikacji
+const mapStateToProps = (state, props) => ({
+  // nazwa propsa: wartość właściwości
+  cards: getCardsForColumn(state, props.id),
+});
+
+const mapDispatchToProps = (dispatch, props) => ({
+  addCard: title => dispatch(createActionAddCard({
+    columnId: props.id,
+    title,
+  })),
+});
+
+//połączenie kompenentu App z magazynem
+export default connect(mapStateToProps, mapDispatchToProps)(Column);
