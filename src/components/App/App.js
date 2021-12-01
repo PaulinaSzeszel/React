@@ -7,7 +7,7 @@ import MainLayout from '../MainLayout/MainLayout';
 import FAQ from '../FAQ/FAQ';
 import styles from './App.scss';
 import List from '../List/ListContainer';
-import SearchResults from '../SearchResults/SearchContainer';
+import SearchResults from '../SearchResults/SearchResultsContainer';
 
 const App = () => (
   <BrowserRouter>
