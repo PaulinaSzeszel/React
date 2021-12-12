@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactHtmlParser from 'react-html-parser';
+import {DragDropContext} from 'react-beautiful-dnd';
 import PropTypes from 'prop-types';
 import { settings } from '../../data/dataStore';
 import styles from './List.scss';
@@ -15,11 +16,13 @@ const List = props => (
       <div className={styles.description}>
         {ReactHtmlParser(props.description)}
       </div>
-      <div className={styles.columns}>
-        {props.columns.map(columnData => (
-          <Column key={columnData.id} {...columnData} />
-        ))}
-      </div>
+      <DragDropContext>
+        <div className={styles.columns}>
+          {props.columns.map(columnData => (
+            <Column key={columnData.id} {...columnData} />
+          ))}
+        </div>
+      </DragDropContext>
       <div className={styles.creator}>
         <Creator text={settings.columnCreatorText} action={props.addColumn} />
       </div>
